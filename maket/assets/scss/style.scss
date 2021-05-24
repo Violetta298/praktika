@@ -1,0 +1,138 @@
+@import 'vars';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Rubik, sans-serif;
+}
+
+body{
+    background: $bg;
+    padding: 70px 100px 0 100px;
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    width: 1000px;
+    margin: 0 auto;
+    font-weight: 300;
+    align-items: center;
+
+    .logo{
+        display: flex;
+        justify-content: center;
+        padding: 10px 25px;
+        font-size: 35px;
+        border: 1px solid $black;
+        border-radius: 5px;
+        width: 90%;
+        cursor: pointer;
+    }
+
+    .nav {
+        width: 100%;
+        &-list{
+            display: flex;
+            list-style: none;
+            width: 80%;
+            justify-content: space-around;
+
+            &-item{
+                cursor: pointer;
+                select {
+                    background: $black;
+                    color: $white;
+                    border: none;
+                    font-family: inherit;
+                    font-weight: inherit;
+                    padding: 3px;
+                    border-radius: 5px;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+
+                }
+
+                &.active {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+.drop-down {
+    position: fixed;
+    z-index: 99;
+    width: 200px;
+    visibility: hidden;
+    opacity: 0;
+    background: $white;
+    padding: 40px 30px;
+    transition: opacity .2s linear;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.ava{
+    width: 30px;
+    height: 30px;
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.btn{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 20px;
+    color: $bg;
+    border: none;
+    margin-right: 5px;
+}
+
+.create-send-h{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list-item:hover .drop-down, .logotype:hover .drop-down{
+    opacity: 1;
+    visibility: visible;
+}
+.user{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4{
+    font-weight: 300;
+}
+
+span.active{
+    text-decoration: underline;
+}
+
+@import 'homepage';
+@import 'capabilities';
+@import 'create.scss';
+@import 'history.scss';
+@import 'api.scss';
+@import 'documentation.scss';
+@import 'login.scss';
+@import 'register.scss'

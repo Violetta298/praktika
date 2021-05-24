@@ -1,0 +1,44 @@
+@import 'vars';
+.api{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    max-width: 100%;
+    align-items: center;
+    background: url(../img/api.png) center center / 40% no-repeat;
+    padding: 50px 0 0 0;
+    overflow: auto;
+    font-size: 20px;
+    .title{
+        margin-bottom: 50px;
+    }
+    .info{
+        width: 100%;
+
+        .api-info{
+            width: 50%;
+            margin: 10px auto;
+            text-align: start;
+        }
+        .api-integrate{
+            width: 50%;
+            margin: 100px auto 0 auto;
+            .api-link{
+                width: 100%;
+                height: 150px;
+                background: $white;
+                border-radius: 30px;
+                margin-top: 10px;
+                border: 2px solid $black;
+            }
+        }
+    }
+    h3{
+        margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,53 @@
+@import 'vars';
+.create{
+    position: relative;
+    display: grid;
+    height: 100vh;
+    max-width: 100%;
+    align-items: center;
+    grid-template-rows: 200px 1fr;
+    background: url(../img/create.png) center center / 50% no-repeat;
+    padding: 100px 0;
+
+    .title{
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        height: 200px;
+        h2{
+            font-size: 56px;
+            font-weight: 400;
+            margin-left: 150px;
+        }
+    }
+
+    .info{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        gap: 100px;
+        .send, .create-send{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: $white;
+            width: 800px;
+            height: 150px;
+            border-radius: 30px;
+            cursor: pointer;
+
+            .icon{
+                width: 40px;
+                height: 40px;
+                background: $cricle;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+            }
+        }
+    }
+}
