@@ -4,14 +4,18 @@ const bcrypt = require('bcrypt')
 const {SECRET} = require('../config/config')
 const jwt = require('jsonwebtoken')
 const router = new Router()
-
+const schema = require('../validation')
 
 router.post('/register', async (req, res) => {
+  const {error} = schema.validate(req.body)
 
+  if(error) {
+    return res.status(400).json({message: 'Ошибка валидации'})
+  }
   try {
-      const {login, password} = req.body
+      const {email, login, password} = req.body
 
-      const candidate = await User.findOne({login})
+      const candidate = await User.findOne({email})
 
       if(candidate) {
           return res.status(400).json({message: 'Пользователь уже существует!'})
@@ -19,7 +23,7 @@ router.post('/register', async (req, res) => {
 
       const hash = await bcrypt.hash(password, 10)
 
-      const user = new User({login, password: hash})
+      const user = new User({login, password: hash, email})
 
       await user.save()
 
@@ -31,10 +35,15 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
+  const {error} = schema.validate(req.body)
+
+  if(error) {
+    return res.status(400).json({message: 'Ошибка валидации'})
+  }
   try {
     const {login, password} = req.body
 
-    const user = await User.findOne({login})
+    const user = await User.findOne({$or: [{login}, {email: login}]})
 
     if(!user) {
         return res.status(404).json({message: 'Некоректные логин или проль'})
