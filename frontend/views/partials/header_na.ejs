@@ -1,0 +1,18 @@
+<header class="header">
+    <div class="logo">QuerySender</div>
+    <nav class="nav">
+        <ul class="nav-list">
+            <% if (isMain) { %>
+                <li class="nav-list-item"><a href="/capabilities">Возможности</a></li>
+                <li class="nav-list-item active"><a href="/">Обзор</a></li>
+                <li class="nav-list-item"><a href="/login">Войти</a></li>
+                <li class="nav-list-item"><a href="/register">Зарегестрироваться</a></li>
+            <% } else{ %>
+                <li class="nav-list-item active"><a href="/capabilities">Возможности</a></li>
+                <li class="nav-list-item"><a href="/">Обзор</a></li>
+                <li class="nav-list-item"><a href="/login">Войти</a></li>
+                <li class="nav-list-item"><a href="/register">Зарегестрироваться</a></li>
+            <% } %>
+        </ul>
+    </nav>
+</header>

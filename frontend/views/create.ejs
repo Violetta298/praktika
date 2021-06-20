@@ -1,0 +1,176 @@
+<%- include('partials/head'); -%>
+<%- include('partials/header'); -%>
+    
+    <main class="main">
+        <section class="create">
+            <div class="title">
+                <h2>Обзор</h2>
+            </div>
+            <div class="info">
+                <div class="send">
+                    <div class="icon"><i class="bi bi-bar-chart-line-fill"></i></div>
+                    <span>Создать Email рассылку</span>
+                </div>
+                <div class="create-send">
+                    <div class="icon"><i class="bi bi-envelope-fill"></i></div>
+                    <span>Создайте sms рассылку</span>
+
+                </div>
+                <div class="address">
+                    <div class="create-send address-book-open">
+                        <span>Смотреть адресную книгу</span>
+    
+                    </div>
+                    <div class="create-send create-address-book-open">
+                        <span>Добавить запись в адресную книгу</span>
+    
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="address-book modal_back">
+        <div class="modal">
+            <i class="bi bi-x-lg close"></i>
+            <% addreses.reverse().forEach((item) => { %>
+                <div class="mail-book">
+                    <div class="title">
+                        <span>Имя: <%- item.name -%></span>
+                        <i class="bi bi-trash delete-book" data-id='<%- item.id -%>'></i>
+                    </div>
+                    <div class="acord-content">
+                        <span>Тип: <%- item.type -%></span>
+                        <span>Адреса: <%- item.addresses.length >= 3 ? item.addresses.slice(0,3).join(', ') + '...': item.addresses.join(', ') -%></span>
+                        <span>Количесво адресов: <%- item.addresses.length -%></span>
+                    </div>
+                </div>
+            <% }) %>    
+        </div>
+    </div>
+    <div class="mobile_modal modal_back">
+        <div class="modal">
+            <i class="bi bi-x-lg close"></i>
+            <form class="sender" data-num="3">
+                <label for="numbers">Выберете аддресную книгу:</label>
+                <select name="phones" id="">
+                    <% addreses.forEach((item) => { %>
+                        <% if(item.type === 'PHONE'){ %>
+                            <option value="<%- item._id -%>"><%- item.name -%></option>
+                        <% } %>
+                    <% }) %>
+                </select>
+                <label for="numbers">Укажите текст рассылки</label>
+                <input placeholder="Text" name="text" type="text">
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+    <div class="email_modal modal_back">
+        <div class="modal">
+    
+            <i class="bi bi-x-lg close"></i>
+            <div class="tabs">
+                <div class="tabs-item">
+                    Использовать готовый шаблон
+                </div>
+                <div class="tabs-item">
+                    Использовать свой шаблон
+                </div>
+                <div class="tabs-item">
+                    Отправить без шаблона
+                </div>
+            </div>
+    
+    
+                <div class="content">
+                    <div class="content-item">
+                        <form class="sender" data-num='0'>
+                            <label for="numbers">Выберете аддресную книгу:</label>
+                            <select name="emails" id="">
+                                <% addreses.forEach((item) => { %>
+                                    <% if(item.type === 'EMAIL'){ %>
+                                        <option value="<%- item._id -%>"><%- item.name -%></option>
+                                    <% } %>
+                                <% }) %>
+                            </select>
+                            <label for="">Тема письма</label>
+                            <input name="name" type="text">
+                            <label for="">Заголовок</label>
+                            <input name="title" type="text">
+                            <label for="">Ссылка на сайт</label>
+                            <input name="linkToSite" type="text">
+                            <label for="">Текст 1</label>
+                            <input name="text1" type="text">
+                            <label for="">Текст 2</label>
+                            <input name="text2" type="text">
+                            <label for="">Ссылка на ресурс 1</label>
+                            <input name="link1" type="text">
+                            <label for="">Названи ресурса 1</label>
+                            <input name="link1text" type="text">
+                            <label for="">Ссылка на ресурс 2</label>
+                            <input name="link2" type="text">
+                            <label for="">Названи ресурса 2</label>
+                            <input name="link2text" type="text">
+                            <label for="">Ссылка на ресурс 3</label>
+                            <input name="link3" type="text">
+                            <label for="">Названи ресурса 3</label>
+                            <input name="link3text" type="text">
+                            <button type="submit">Отправить</button>
+                        </form>    
+                    </div>
+                    <div class="content-item">
+                        <form class="sender" data-num='1'>
+                            <label for="numbers">Выберете аддресную книгу:</label>
+                            <select name="emails" id="">
+                                <% addreses.forEach((item) => { %>
+                                    <% if(item.type === 'EMAIL'){ %>
+                                        <option value="<%- item._id -%>"><%- item.name -%></option>
+                                    <% } %>
+                                <% }) %>
+                            </select>
+                            <label for="">Тема письма</label>
+                            <input name="name" type="text">
+                            <label for="text">Ваш шаблон с текстом</label>
+                            <textarea name="html" type="text"></textarea>
+                            <button type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="content-item">
+                        <form class="sender" data-num='2'>
+                            <label for="numbers">Выберете аддресную книгу:</label>
+                            <select name="emails" id="">
+                                <% addreses.forEach((item) => { %>
+                                    <% if(item.type === 'EMAIL'){ %>
+                                        <option value="<%- item._id -%>"><%- item.name -%></option>
+                                    <% } %>
+                                <% }) %>
+                            </select>
+                            <label for="">Тема письма</label>
+                            <input name="name" type="text">
+                            <label for="text">Текст</label>
+                            <input name="text" type="text">
+                            <button type="submit">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+    
+    <div class="create-address modal_back">
+        <div class="modal">
+            <i class="bi bi-x-lg close"></i>
+            <form class="sender" data-num="4">
+                <label for="">Имя адресной книги:</label>
+                <input name="name" type="text" placeholder="Имя книги">
+                <label for="">Введите только номера телефонов или только почтовые адреса через пробел:</label>
+                <input required name="addresses" type="text" placeholder="xxx@xxxx.xx xxx@xx.xxx">
+                <label for="">Тип рассылки:</label>
+                <select name="type">
+                    <option value="EMAIL">Email</option>    
+                    <option value="PHONE">Телефонная</option>
+                </select>
+                <button type="submit">Создать</button>
+            </form>
+        </div>
+    </div>
+    <%- include('partials/footer'); -%>

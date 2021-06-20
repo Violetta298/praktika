@@ -1,0 +1,27 @@
+<%- include('partials/head'); -%>
+    <header class="header">
+        <div class="logo"><a href="/">QuerySender</a></div>
+    </header>
+    <main class="main">
+        <section class="register">
+            <div class="info">
+                <h2>Зарегестрироваться</h2>
+                <span>
+                    Уже зарегистрированы? <a style="color: white;" href="/login">Войти</a>  
+                </span>
+            </div>
+            <div class="min-cricle"></div>
+            <div class="v-min-cricle"></div>
+            <div class="big-cricle"></div>
+            <form class="register-form auth" data-type="register">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required placeholder="Введите Email">
+                <label for="login">Login</label>
+                <input id="login" name="login" type="text" required placeholder="Введите Login">
+                <label for="pass">Пароль</label>
+                <input minlength="6" id="pass" type="password" name="password" required placeholder="Пароль">
+                <button class="reg-btn" type="submit">Зарегестрироваться</button>
+            </form>
+        </section>
+    </main>
+    <%- include('partials/footer'); -%>

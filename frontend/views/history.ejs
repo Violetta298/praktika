@@ -1,0 +1,37 @@
+<%- include('partials/head'); -%>
+<%- include('partials/header'); -%>
+
+    <main class="main">
+        <section class="history">
+            <div class="info">
+                <div>
+                    <h3>Исто<span>рия</span></h3>
+                    <% if(!history.length) { %>
+                        <a href="/main">
+                            <div class="history-info">
+                                <div class="icon"><i class="bi bi-file-text"></i></div>
+                                <span>Отправьте первую рассылку</span>
+                            </div>
+                        </a>
+                    <% } else { %>
+                        <% history.forEach(item => { %>
+                            <div class="history-info" style="text-align: center;">
+                                <div class="icon"><i class="bi bi-file-text"></i></div>
+                                <span><b>Тип</b>: <br> <%- item.type -%></span>
+                                <span><b>Адреса</b>: <br> <%- item.address.addresses.length >= 3 ? item.address.addresses.slice(0,3).join(', ') + '...': item.address.addresses.join(', ') -%></span>
+                                <span><b>Дата</b>: <br> <%- Intl.DateTimeFormat('ru-RU', {
+                                    year: '2-digit',
+                                    month: '2-digit',
+                                    day: '2-digit',
+                                    hour: '2-digit', 
+                                    minute: '2-digit', 
+                                }).format(item.date) -%></span>
+                            </div>
+                        <% }) %>
+                    <% } %>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('partials/footer'); -%>

@@ -1,0 +1,35 @@
+<%- include('partials/head'); -%>
+
+
+    <%- include('partials/header'); -%>
+    <main class="main">
+        <section class="api">
+            <h3 class="title">Все об интеграции API</h3>
+
+            <div class="info">
+                <div>
+                    <div class="api-info">
+                        <span>
+                            Интеграция API - это интерфейс программирования, который позволяет создавать, редактировать и управлять данными в  через ваше приложение. Интеграция API помогает связать с нашей системой любой софт: программа будет сама синхронизироваться с приложениями и корпоративным ПО.
+                        </span>
+                    </div>
+                    <div class="api-integrate">
+                        <h3>Принцип использования API</h3>
+                        <div class="action">
+                            <span>Вызов метода</span>
+                            <div class="api-link">
+                                <% if(!user.api) { %>
+                                    <p>Вам запрещен доступ к API</p>
+                                <% } else { %>
+                                    <p>/<%- user._id -%>/sms</p>
+                                    <p>/<%- user._id -%>/email</p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<%- include('partials/footer'); -%>

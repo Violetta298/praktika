@@ -1,0 +1,39 @@
+<%- include('partials/head'); -%>
+<%- include('partials/header'); -%>
+
+    <main class="main">
+        <section class="doc">
+            <h3 class="title">Документация</h3>
+
+            <div class="info">
+                <div>
+                    <div class="doc-info">
+                        <span>
+                            Для вфзова методов API, необходимо отправить POST запрос на URL указанный на стринице <a style="text-decoration: underline;" href="/api">API</a>
+                        </span>
+                        <span class="docs">
+                            Тело запроса для sms:
+                            <code>
+                                { <br>
+                                    address: [], // массив адресов <br>
+                                    text: '' // текст рассылки <br>
+                                }
+                            </code>
+                        </span>
+                        <span class="docs">
+                            Тело запроса для email:
+                            <code>
+                                { <br>
+                                    address: [], // массив адресов <br>
+                                    text: '', // текст рассылки <br>
+                                    title: '' // заголовок письма <br>
+                                }
+                            </code>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('partials/footer'); -%>
