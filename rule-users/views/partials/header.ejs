@@ -1,0 +1,24 @@
+<header class="header">
+    <div class="logotype">
+        <div class="logo"><a href="/main">QuerySender</a></div>
+        <div class="drop-down">
+            <span><a href="/api"><i class="bi bi-alt"></i> Интеграция API</a></span>
+            <span><a href="/history"><i class="bi bi-envelope-open"></i> Рассылки</a></span>
+            <span><a href="/documentation"><i class="bi bi-file-earmark-text"></i> Документация</a></span>
+        </div>
+    </div>
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-list-item">
+                <a href="/main" class="create-send-h"><button class="btn">+</button>Создать рассылку</a>
+            </li>
+            <li class="nav-list-item">
+                <div class="user"><span class="ava"><%= user.email[0].toUpperCase() %></span><%= user.email %></div>
+                <div class="drop-down">
+                    <span class="logout"><i class="bi bi-box-arrow-right"></i> Выход</span>
+                </div>
+            </li>
+
+        </ul>
+    </nav>
+</header>
